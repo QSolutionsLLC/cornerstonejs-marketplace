@@ -24,6 +24,11 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      - run: 
+          command: |
+            mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+            # git clone -b develop $CIRCLE_REPOSITORY_URL 
+            # cd $CIRCLE_PROJECT_REPONAME
       - persist_to_workspace:
           root: ~/repo
           paths: .
