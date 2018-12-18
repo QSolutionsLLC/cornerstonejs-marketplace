@@ -2,5 +2,6 @@
 module.exports = {
     baseUrl: process.env.NODE_ENV === 'production'
     ? '/cornerstonejs-marketplace/'
-    : '/'
+    : '/',
+    lintOnSave: true
   }
