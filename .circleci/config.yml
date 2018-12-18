@@ -12,9 +12,6 @@ jobs:
   checkout_code:
     <<: *defaults
     steps:
-      #- run:
-      #  command: |
-      #    mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - checkout
       - attach_workspace:
           at: ~/repo
@@ -37,6 +34,7 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run: npm install
+      ##  Why doesn't this fix the hack below?
       - add_ssh_keys:
           fingerprints:
             - "4e:be:6e:92:f9:87:56:0d:4d:77:30:d0:57:1d:45:04"
@@ -45,6 +43,9 @@ jobs:
           command: |
             if [ $CIRCLE_BRANCH == $SOURCE_BRANCH ]; then
 
+              ## Hacky work-around
+              ## We should load an RSA key, and use it to validate GitHub host
+              ## Instead of forcing any/all hosts to work
               mkdir ~/.ssh/
               touch ~/.ssh/known_hosts
               ssh-keyscan github.com >> ~/.ssh/known_hosts
@@ -75,9 +76,6 @@ jobs:
 workflows:
   version: 2
 
-  ##
-  ##
-  ##
   test_build_deploy:
     jobs:
       - checkout_code:
