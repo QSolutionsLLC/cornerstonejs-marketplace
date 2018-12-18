@@ -46,7 +46,14 @@ npm run test
 npm run lint
 ```
 
-<!-- ALL-CONTRIBUTORS-LIST: START - Do not remove or modify this section -->
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key][emojis]):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars1.githubusercontent.com/u/5797588?v=4" width="100px;"/><br /><sub><b>Danny Brown</b></sub>](http://dannyrb.com/)<br />[💻](https://github.com/dannyrb/cornerstonejs-marketplace/commits?author=dannyrb "Code") [🎨](#design-dannyrb "Design") |
+| :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
