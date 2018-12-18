@@ -30,35 +30,6 @@
 
 ...
 
-## Contributing
-
-```js
-// Setup
-npm install
-
-// Compiles and hot-reloads for development
-npm run serve
-
-// Run your tests
-npm run test
-
-// Lints and fixes files
-npm run lint
-```
-
-## Contributors
-
-Thanks goes to these wonderful people ([emoji key][emojis]):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
-| [<img src="https://avatars1.githubusercontent.com/u/5797588?v=4" width="100px;"/><br /><sub><b>Danny Brown</b></sub>](http://dannyrb.com/)<br />[💻](https://github.com/dannyrb/cornerstonejs-marketplace/commits?author=dannyrb "Code") [🎨](#design-dannyrb "Design") |
-| :---: |
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors][all-contributors] specification.
-Contributions of any kind welcome!
-
 ## Issues
 
 _Looking to contribute? Look for the [Good First Issue][good-first-issue]
@@ -81,6 +52,23 @@ a 👍. This helps maintainers prioritize what to work on.
 
 For the time being, please feel free to open an issue. We'll provide a better
 avenue for communication moving forward ^_^
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key][emojis]):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars1.githubusercontent.com/u/5797588?v=4" width="100px;"/><br /><sub><b>Danny Brown</b></sub>](http://dannyrb.com/)<br />[💻](https://github.com/dannyrb/cornerstonejs-marketplace/commits?author=dannyrb "Code") [🎨](#design-dannyrb "Design") |
+| :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors][all-contributors] specification.
+Contributions of any kind welcome!
+
+## License
+
+...
 
 <!--
 Links:
