@@ -12,6 +12,9 @@ jobs:
   checkout_code:
     <<: *defaults
     steps:
+      #- run:
+      #  command: |
+      #    mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - checkout
       - attach_workspace:
           at: ~/repo
@@ -34,10 +37,18 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run: npm install
+      - add_ssh_keys:
+          fingerprints:
+            - "4e:be:6e:92:f9:87:56:0d:4d:77:30:d0:57:1d:45:04"
       - deploy:
           name: Deploy
           command: |
             if [ $CIRCLE_BRANCH == $SOURCE_BRANCH ]; then
+
+              mkdir ~/.ssh/
+              touch ~/.ssh/known_hosts
+              ssh-keyscan github.com >> ~/.ssh/known_hosts
+
               git config --global user.email $GH_EMAIL
               git config --global user.name $GH_NAME
 
@@ -50,7 +61,7 @@ jobs:
 
               npm run build
 
-              cp -a build/. out/.
+              cp -a dist/. out/.
 
               mkdir -p out/.circleci && cp -a .circleci/. out/.circleci/.
               cd out
