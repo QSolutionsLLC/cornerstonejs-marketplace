@@ -2,7 +2,7 @@
 <h1>cornerstonejs-marketplace</h1>
 
 <a href="https://www.emojione.com/emoji/1f469-2695">
-<img height="80" width="80" alt="goat" src="https://raw.githubusercontent.com/dannyrb/cornerstonejs-marketplace/master/other/female_health_worker.png" />
+<img height="80" width="80" alt="female health worker (emoji)" src="https://raw.githubusercontent.com/dannyrb/cornerstonejs-marketplace/master/other/female_health_worker.png" />
 </a>
 
 <p>Tools, Image Loaders, Learning Resources, and more for <a href="https://github.com/cornerstonejs/cornerstone">CornerstoneJS</a></p>
@@ -20,11 +20,7 @@
 [![Tweet][twitter-badge]][twitter]
 <!-- prettier-ignore-end -->
 
-<div align="center">
-<a href="https://testingjavascript.com">
-<img width="500" alt="TestingJavaScript.com Learn the smart, efficient way to test any JavaScript application." src="https://raw.githubusercontent.com/kentcdodds/react-testing-library/master/other/testingjavascript.jpg" />
-</a>
-</div>
+<!-- TODO: Pull Quote -->
 
 ## The problem
 
