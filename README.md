@@ -59,6 +59,29 @@ Thanks goes to these wonderful people ([emoji key][emojis]):
 This project follows the [all-contributors][all-contributors] specification.
 Contributions of any kind welcome!
 
+## Issues
+
+_Looking to contribute? Look for the [Good First Issue][good-first-issue]
+label._
+
+### 🐛 Bugs
+
+Please file an issue for bugs, missing documentation, or unexpected behavior.
+
+[**See Bugs**][bugs]
+
+### 💡 Feature Requests
+
+Please file an issue to suggest new features. Vote on feature requests by adding
+a 👍. This helps maintainers prioritize what to work on.
+
+[**See Feature Requests**][requests]
+
+### ❓ Questions
+
+For the time being, please feel free to open an issue. We'll provide a better
+avenue for communication moving forward ^_^
+
 <!--
 Links:
 -->
