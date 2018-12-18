@@ -12,7 +12,7 @@ jobs:
   checkout_code:
     <<: *defaults
     steps:
-    - add_ssh_keys:
+      - add_ssh_keys:
         fingerprints:
           - "4e:be:6e:92:f9:87:56:0d:4d:77:30:d0:57:1d:45:04"
       - run:
