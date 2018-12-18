@@ -44,6 +44,9 @@ jobs:
           name: Deploy
           command: |
             if [ $CIRCLE_BRANCH == $SOURCE_BRANCH ]; then
+
+              ssh-keyscan github.com >> ~/.ssh/known_hosts
+              
               git config --global user.email $GH_EMAIL
               git config --global user.name $GH_NAME
 
@@ -64,7 +67,6 @@ jobs:
               git add -A
               git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
 
-              ssh-keyscan github.com >> ~/.ssh/known_hosts
               git push origin $TARGET_BRANCH
             fi
 
