@@ -1,16 +1,17 @@
 <template>
-    <section class="subnavigation-container">
-        <div class="subnavigation-wrapper">
-            <ul>
-                <li><a href="#">Annotation</a></li>
-                <li><a href="#">Drag</a></li>
-                <li><a href="#">Multi-Touch / Gesture</a></li>
-                <li><a href="#">Scroll</a></li>
-                <li><a href="#">Overlay</a></li>
-                <li><a href="#">Brush</a></li>
-            </ul>
-        </div>
-    </section>
+  <section class="subnavigation-container show-desktop">
+    <div class="subnavigation-wrapper">
+      <ul>
+        <li><a href="#">All Items</a></li>
+        <li><a href="#">Annotation</a></li>
+        <li><a href="#">Drag</a></li>
+        <li><a href="#">Multi-Touch / Gesture</a></li>
+        <li><a href="#">Scroll</a></li>
+        <li><a href="#">Overlay</a></li>
+        <li><a href="#">Brush</a></li>
+      </ul>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -62,5 +63,18 @@ a {
 a:hover {
   background-color: #999;
   color: #fff;
+}
+
+/***
+ * Navigation: Breakpoint(s)
+ */
+.show-desktop {
+  display: none;
+}
+
+@media (min-width: 1024px){
+  .show-desktop {
+    display: flex;
+  }
 }
 </style>
