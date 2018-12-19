@@ -4,6 +4,7 @@
     <SubNavigation />
 
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+
   </div>
 </template>
 
@@ -82,10 +83,9 @@ html {
 
 /* STYLES */
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,segoe ui,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,arial,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
