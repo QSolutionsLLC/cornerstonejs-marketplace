@@ -17,7 +17,7 @@
           <div class="content-description">
             <h3 class="product-title">
               <a href="#">
-                Emo - Health & Medical Mobile Template
+                Basic Overlay Plugin
               </a>
             </h3>
             <div class="by-line">
