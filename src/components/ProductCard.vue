@@ -21,7 +21,7 @@
               </a>
             </h3>
             <div class="by-line">
-              <i>by</i> <a href="#">@dannyrb</a> in <a href="#">Category</a>
+              <i>by </i> <a href="#">@dannyrb</a> in <a href="#">Category</a>
             </div>
           </div>
 
@@ -124,33 +124,28 @@ export default {
     color: #4d4d4d;
     max-height: 40px;
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
     text-decoration: none;
   }
 
-  .product-title a:hover {
-    text-decoration: underline;
+  .by-line,
+  .by-line a {
+    color: #999;
+    height: 18px;
+    font-size: 12px;
+    line-height: 18px;
+    max-height: 18px;
   }
-
-
 
   a {
     font-weight: bold;
     cursor: pointer;
     position: relative;
     display: inline-block;
+    text-decoration: none;
   }
 
-
-  .by-line {
-    color: #999;
-    height: 18px;
-    font-size: 12px;
-    line-height: 18px;
-    max-height: 18px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  a:hover {
+    text-decoration: underline;
   }
 </style>
