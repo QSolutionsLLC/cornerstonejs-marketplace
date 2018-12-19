@@ -1,5 +1,5 @@
 <template>
-  <a href="#">
+  <a href="#" :class="type">
     {{ name }}
   </a>
 </template>
@@ -11,6 +11,10 @@ export default {
       type: String,
       required: true 
     },
+    type: {
+      type: String,
+      default: 'default'
+    }
   },
 }
 </script>
@@ -35,5 +39,33 @@ a {
   border: 1px solid #ccc;
   background-color: transparent;
   -webkit-font-smoothing: antialiased;
+}
+
+a:hover {
+  text-decoration: none;
+  outline-width: none;
+}
+
+/*** 
+ * Default
+ */
+a.default:hover {
+  color: #fff;
+  border-color: #ccc;
+  background-color: #ccc;
+}
+
+/*** 
+ * Primary
+ */
+a.primary {
+  color: #79b530;
+  border-color: #79b530;
+}
+
+a.primary:hover {
+  color: #fff;
+  background-color: #79b530;
+  border-color: #79b530;
 }
 </style>

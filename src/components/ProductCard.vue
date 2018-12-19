@@ -30,7 +30,7 @@
             <div class="cost">$20</div>
             <div class="buttons">
               <SimpleButton name="Preview" />
-              <SimpleButton name="Buy" />
+              <SimpleButton name="Buy" type="primary" />
             </div>
           </div>
         </div>
