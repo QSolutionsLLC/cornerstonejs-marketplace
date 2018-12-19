@@ -1,6 +1,11 @@
 <template>
   <main>
+    <!-- Basic search filter -->
+    <!-- #items, grid or list -->
+
     <ProductGrid />
+
+    <!-- Paging -->
   </main>
 </template>
 
