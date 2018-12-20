@@ -31,7 +31,13 @@ export default new Router({
       path: '/find-experts',
       name: 'find-experts',
       component: () => import(/* webpackChunkName: "find-experts" */ './views/FindExperts.vue'),
-    }
+    },
+    // ADMIN
+    {
+      path: '/connect',
+      name: 'connect',
+      component: () => import(/* webpackChunkName: "connect" */ './views/Connect.vue'),
+    },
   ]
 })
 

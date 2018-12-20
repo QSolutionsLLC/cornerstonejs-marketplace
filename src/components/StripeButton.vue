@@ -1,14 +1,33 @@
 <template>
     <!-- http://jsfiddle.net/luddep/vM7R7/ -->
-    <div class="stripe-connect light-blue">
+    <a class="stripe-connect light-blue" @click.prevent="StripeConnect">
       <span>Connect with Stripe</span>
-    </div>
+    </a>
 </template>
 
 <script>
-    export default {
-        
+export default {
+  props: {
+    state: {
+      type: String,
+      required: true
+    },
+  },
+  methods: {
+    StripeConnect() {
+      const stripeOauthUrl = "https://connect.stripe.com/oauth/authorize"
+      const responseType = "code"
+      const clientId = process.env.VUE_APP_STRIPE_CLIENT_ID
+      const scope = "read_write"
+
+      if(this.state){
+        window.open(`${stripeOauthUrl}?response_type=${responseType}&client_id=${clientId}&scope=${scope}&state=${this.state}`)
+      }else{
+        window.alert("You must provide your magic token to proceed.")
+      }
     }
+  },
+}
 </script>
 
 <style scoped>
