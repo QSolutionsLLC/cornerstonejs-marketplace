@@ -24,7 +24,7 @@
     <section class="header-wrapper show-desktop">
       <nav class="navigation--secondary">
         <ul>
-          <li><RouterLink to="/plugins/all">Plugins</RouterLink></li>
+          <li><RouterLink to="/plugins">Plugins</RouterLink></li>
           <li><RouterLink to="/learning-materials">Learning Materials</RouterLink></li>
           <li><RouterLink to="/find-experts">Find Experts</RouterLink></li>
         </ul>
