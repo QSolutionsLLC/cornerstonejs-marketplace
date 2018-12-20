@@ -63,7 +63,7 @@
         <div class="copyright">
           <ul>
             <li>
-              <a href="#">About Cornerstone</a>
+              <RouterLink to="/about">About Cornerstone</RouterLink>
             </li>
             <li>
               <a href="#">Privacy Policy</a>

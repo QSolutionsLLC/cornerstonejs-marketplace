@@ -1,25 +1,22 @@
 <template>
   <div id="app">
+    
     <NavigationHeader />
     <NavigationSubheader />
 
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <RouterView />
 
     <NavigationFooter />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import NavigationHeader from './components/NavigationHeader.vue'
 import NavigationSubheader from './components/NavigationSubheader.vue'
 import NavigationFooter from './components/NavigationFooter.vue'
 
-
 export default {
-  name: 'app',
   components: {
-    HelloWorld,
     NavigationHeader,
     NavigationSubheader,
     NavigationFooter

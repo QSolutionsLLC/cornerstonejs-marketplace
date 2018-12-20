@@ -2,17 +2,17 @@
   <header>
     <!-- Mobile -->
     <section class="header-wrapper hide-desktop">
-      <a href="/">
+      <RouterLink to="/">
         <img src="https://placehold.it/140x40" />
-      </a>
+      </RouterLink>
       <HamburgerButton style="position: relative; margin-left: auto;" />
     </section>
 
     <!-- Desktop -->
     <section class="header-wrapper show-desktop" style="padding-bottom: 8px;">
-      <a href="/">
+      <RouterLink to="/">
         <img src="https://placehold.it/145x48" />
-      </a>
+      </RouterLink>
       <nav class="navigation--primary">
         <ul>
           <li><a href="/forums">Forums</a></li>
