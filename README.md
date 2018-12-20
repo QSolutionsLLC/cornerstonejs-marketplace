@@ -11,7 +11,8 @@
 <hr />
 
 <!-- prettier-ignore-start -->
-<!-- TODO: Build + Coverage -->
+<!-- TODO: Coverage -->
+[![CircleCI](https://circleci.com/gh/dannyrb/cornerstonejs-marketplace.svg?style=svg)](https://circleci.com/gh/dannyrb/cornerstonejs-marketplace)
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs] [![Code of Conduct][coc-badge]][coc]
 
