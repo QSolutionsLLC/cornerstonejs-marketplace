@@ -3,6 +3,8 @@
     <!-- Basic search filter -->
     <!-- #items, grid or list -->
 
+    <h1 v-if="category">{{ category }}</h1>
+
     <ProductGrid />
 
     <!-- Paging -->
@@ -17,7 +19,13 @@ export default {
   name: 'plugins',
   components: {
     ProductGrid
-  }
+  },
+  props: {
+    category: {
+      type: String,
+      default: undefined
+    },
+  },
 }
 </script>
 

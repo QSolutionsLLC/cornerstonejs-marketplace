@@ -17,7 +17,7 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
     {
-      path: '/plugins/:category',
+      path: '/plugins/:category?',
       name: 'plugins',
       component: () => import(/* webpackChunkName: "plugins" */ './views/Plugins.vue'),
       props: true

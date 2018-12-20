@@ -1,14 +1,14 @@
 <template>
   <section class="subnavigation-container show-desktop">
-    <div class="subnavigation-wrapper">
+    <div class="subnavigation-wrapper" v-if="isVisible">
       <ul>
-        <li><a href="#">All Items</a></li>
-        <li><a href="#">Annotation</a></li>
-        <li><a href="#">Drag</a></li>
-        <li><a href="#">Multi-Touch / Gesture</a></li>
-        <li><a href="#">Scroll</a></li>
-        <li><a href="#">Overlay</a></li>
-        <li><a href="#">Brush</a></li>
+        <li><RouterLink to="/plugins">All Items</RouterLink></li>
+        <li><RouterLink to="/plugins/annotation-tools">Annotation</RouterLink></li>
+        <li><RouterLink to="/plugins/drag-tools">Drag</RouterLink></li>
+        <li><RouterLink to="/plugins/multi-touch-gesture-tools">Multi-Touch / Gesture</RouterLink></li>
+        <li><RouterLink to="/plugins/scroll-tools">Scroll</RouterLink></li>
+        <li><RouterLink to="/plugins/overlay-tools">Overlay</RouterLink></li>
+        <li><RouterLink to="/plugins/brush-tools">Brush</RouterLink></li>
       </ul>
     </div>
   </section>
@@ -16,7 +16,11 @@
 
 <script>
     export default {
-        
+        computed: {
+          isVisible() {
+            return this.$route.name === 'plugins'
+          }
+        },
     }
 </script>
 
