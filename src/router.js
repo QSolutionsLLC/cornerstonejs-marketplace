@@ -23,6 +23,12 @@ export default new Router({
       props: true
     },
     {
+      path: '/plugins/item/:name',
+      name: 'product',
+      component: () => import(/* webpackChunkName: "product" */ './views/Product.vue'),
+      props: true
+    },
+    {
       path: '/learning-materials',
       name: 'learning-materials',
       component: () => import(/* webpackChunkName: "learning-materials" */ './views/LearningMaterials.vue'),
