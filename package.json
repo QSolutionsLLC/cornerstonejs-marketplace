@@ -10,18 +10,18 @@
     "contributors:generate": "all-contributors generate"
   },
   "dependencies": {
-    "vue": "^2.5.17",
-    "vue-router": "^3.0.1"
+    "vue": "2.5.x",
+    "vue-router": "3.0.x"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.2.0",
-    "@vue/cli-plugin-eslint": "^3.2.0",
-    "@vue/cli-service": "^3.2.0",
-    "all-contributors-cli": "^5.4.1",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0-0",
-    "vue-template-compiler": "^2.5.17"
+    "@vue/cli-plugin-babel": "3.2.x",
+    "@vue/cli-plugin-eslint": "3.2.x",
+    "@vue/cli-service": "3.2.x",
+    "all-contributors-cli": "5.4.x",
+    "babel-eslint": "10.0.x",
+    "eslint": "5.x.x",
+    "eslint-plugin-vue": "5.0.x",
+    "vue-template-compiler": "2.5.x"
   },
   "eslintConfig": {
     "root": true,
