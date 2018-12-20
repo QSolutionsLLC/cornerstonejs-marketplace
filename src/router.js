@@ -14,10 +14,40 @@ export default new Router({
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+    },
+    {
+      path: '/plugins/:category',
+      name: 'plugins',
+      component: () => import(/* webpackChunkName: "plugins" */ './views/Plugins.vue'),
+      props: true
+    },
+    {
+      path: '/learning-materials',
+      name: 'learning-materials',
+      component: () => import(/* webpackChunkName: "learning-materials" */ './views/LearningMaterials.vue'),
+    },
+    {
+      path: '/find-experts',
+      name: 'find-experts',
+      component: () => import(/* webpackChunkName: "find-experts" */ './views/FindExperts.vue'),
     }
   ]
 })
+
+// Home
+// Start Selling
+//  - Legal: Author Terms
+// Contact
+// Plugins
+//  - All
+//  - Annotation
+//  - Drag
+//  - Multi-Touch / Gesture
+//  - Scroll
+//  - Overlay
+//  - Brush
+//  - Image Loaders
+//  - Misc.
+// Learning Materials
+// For Hire

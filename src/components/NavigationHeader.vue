@@ -24,9 +24,9 @@
     <section class="header-wrapper show-desktop">
       <nav class="navigation--secondary">
         <ul>
-          <li><a href="/category/tools" class="active">Tools</a></li>
-          <li><a href="/category/image-loaders">Image Loaders</a></li>
-          <li><a href="/category/learning-materials">Learning Materials</a></li>
+          <li><RouterLink to="/plugins/all">Plugins</RouterLink></li>
+          <li><RouterLink to="/learning-materials">Learning Materials</RouterLink></li>
+          <li><RouterLink to="/find-experts">Find Experts</RouterLink></li>
         </ul>
       </nav>
     </section>
@@ -115,13 +115,13 @@ nav.navigation--primary {
   position: relative;
 }
 
-.navigation--secondary a.active,
+.navigation--secondary a.router-link-active,
 .navigation--secondary a:hover,
 .navigation--secondary a:focus {
   opacity: 1;
 }
 
-.navigation--secondary a.active::after {
+.navigation--secondary a.router-link-active::after {
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-bottom: 6px solid whitesmoke;

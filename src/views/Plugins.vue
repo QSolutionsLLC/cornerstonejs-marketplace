@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="view-plugins">
     <!-- Basic search filter -->
     <!-- #items, grid or list -->
 
@@ -10,22 +10,18 @@
 </template>
 
 <script>
-import ProductGrid from './ProductGrid.vue'
+// @ is an alias to /src
+import ProductGrid from '@/components/ProductGrid.vue'
 
 export default {
-  name: 'HelloWorld',
+  name: 'plugins',
   components: {
-    ProductGrid,
-  },
-  props: {
-    msg: String
+    ProductGrid
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 main {
   width: 100%;
   max-width: 1408px;
