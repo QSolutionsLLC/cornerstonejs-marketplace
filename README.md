@@ -31,6 +31,23 @@
 
 ...
 
+## TODO
+
+- Update static content:
+  - Home
+  - Learning Materials
+  - Find Experts
+  - Footer Links
+  - Slack / Spectrum / Discord invite
+  - Start Selling
+  - Contact Us
+- Workflow for adding public listing
+- Workflow for becoming verified repo
+- Workflow for becoming verified author
+- Purchase workflow for single self sale
+- Workflow for linking express/ connect account
+- Workflow for pass through purchase
+
 ## Issues
 
 _Looking to contribute? Look for the [Good First Issue][good-first-issue]
