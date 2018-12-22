@@ -68,4 +68,19 @@ a.primary:hover {
   background-color: #79b530;
   border-color: #79b530;
 }
+
+/***  
+ * Primary Solid
+ */
+a.primary-solid {
+  color: #fff;
+  background-color: #79b530;
+  border-color: #79b530;
+}
+
+a.primary-solid:hover {
+  color: #fff;
+  background-color: #7bc71e;
+  border-color: #7bc71e;
+}
 </style>
