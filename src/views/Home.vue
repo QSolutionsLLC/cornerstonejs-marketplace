@@ -20,39 +20,47 @@
     </section>
 
     <!-- Free & Paid -->
-    <section class="featured">
-      <h3>Discover Free and Premium plugins</h3>
-      <p>Want to add advanced tools and behaviors to Cornerstone.js? Check out
-        the most popular plugins.
-      </p>
+    <section class="featured-wrapper">
+      <div class="featured-content">
 
-      <ul>
-        <li v-for="item in [1, 2, 3, 4, 5, 6, 7]" :key="item">
-          <a href="#">
-            <img src="https://placehold.it/80x80" />
-          </a>
-        </li>
-      </ul>
+        <h3>Discover Free and Premium plugins</h3>
+        <p>Want to add advanced tools and behaviors to Cornerstone.js? Check out
+          the most popular plugins.
+        </p>
 
-      <SimpleButton style="margin: 15px auto 0 auto; max-width: 350px;" name="View More Plugins" type="primary-solid" />
+        <ul>
+          <li v-for="item in [1, 2, 3, 4, 5, 6, 7]" :key="item">
+            <a href="#">
+              <img src="https://placehold.it/80x80" />
+            </a>
+          </li>
+        </ul>
+
+        <SimpleButton style="margin: 15px auto 0 auto; max-width: 350px;" name="View More Plugins" type="primary-solid" />
+
+      </div>
     </section>
 
     <!-- POPULAR -->
 
     <!-- COMMUNITY -->
 
-    <section class="featured">
-      <h3>Engage with our global community</h3>
-      <p>Community is the heart of Cornerstone! Jump on our busy online forums 
-        where experts share their knowledge and you can get help from fellow
-        creatives, discuss features and products, and make great connections.
-        Even in real life :)
-      </p>
+    <section class="featured-wrapper">
+      <div class="featured-content">
 
-      
-      <img src="https://placehold.it/984x260" style="margin: 0 auto;" />
+        <h3>Engage with our global community</h3>
+        <p>Community is the heart of Cornerstone! Jump on our busy online forums 
+          where experts share their knowledge and you can get help from fellow
+          creatives, discuss features and products, and make great connections.
+          Even in real life :)
+        </p>
 
-      <SimpleButton style="margin: 15px auto 0 auto; max-width: 350px;" name="Visit Our Forums" type="primary-solid" />
+        
+        <img src="https://placehold.it/984x260" style="margin: 0 auto;" />
+
+        <SimpleButton style="margin: 15px auto 0 auto; max-width: 350px;" name="Visit Our Forums" type="primary-solid" />
+
+      </div>
     </section>
 
     <!-- NOTIFIED OF NEW: TinyLetter -->
@@ -135,11 +143,19 @@ form button:hover {
 /**
  *
  */
-.featured {
-  max-width: 1008px;
+.featured-wrapper {
+  width: 100%;
   background: #f5f5f5;
-  padding: 64px 0;
+}
+
+.featured-content {
   margin: 0 auto;
+  max-width: 1008px;
+  padding: 64px 10px;
+}
+
+.featured-content img {
+  max-width: 100%;
 }
 
 h3 {
