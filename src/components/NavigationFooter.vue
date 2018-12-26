@@ -11,10 +11,8 @@
             <li>
               <ul>
                 <li class="title">CornerstoneJS Market</li>
-                <li><a href="#">Terms</a></li>
+                <li><RouterLink to="/legal/market">Terms</RouterLink></li>
                 <li><a href="#">Licenses</a></li>
-                <li><a href="#">API</a></li>
-                <li><a href="#">Become an affiliate</a></li>
               </ul>
             </li>
             <li>
@@ -66,7 +64,7 @@
               <RouterLink to="/about">About Cornerstone</RouterLink>
             </li>
             <li>
-              <a href="#">Privacy Policy</a>
+              <RouterLink to="/legal/privacy-policy">Privacy Policy</RouterLink>
             </li>
             <li>
               <a href="#">Sitemap</a>
