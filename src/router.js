@@ -38,6 +38,12 @@ export default new Router({
       name: 'find-experts',
       component: () => import(/* webpackChunkName: "find-experts" */ './views/FindExperts.vue'),
     },
+    // LEGAL
+    {
+      path: '/legal/:content?',
+      name: 'legal',
+      component: () => import(/* webpackChunkName: "legal" */ './views/Legal.vue'),
+    },
     // ADMIN
     {
       path: '/connect',
