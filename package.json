@@ -10,6 +10,7 @@
     "contributors:generate": "all-contributors generate"
   },
   "dependencies": {
+    "marked": "^0.5.2",
     "vue": "2.5.x",
     "vue-router": "3.0.x"
   },
@@ -21,6 +22,7 @@
     "babel-eslint": "10.0.x",
     "eslint": "5.x.x",
     "eslint-plugin-vue": "5.0.x",
+    "raw-loader": "^1.0.0",
     "vue-template-compiler": "2.5.x"
   },
   "eslintConfig": {
