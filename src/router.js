@@ -49,6 +49,11 @@ export default new Router({
       name: 'help-author',
       component: () => import(/* webpackChunkName: "legal" */ './views/HelpAuthor.vue'),
     },
+    {
+      path: '/sitemap',
+      name: 'sitemap',
+      component: () => import(/* webpackChunkName: "legal" */ './views/Sitemap.vue'),
+    },
     // LEGAL
     {
       path: '/legal/:content?',

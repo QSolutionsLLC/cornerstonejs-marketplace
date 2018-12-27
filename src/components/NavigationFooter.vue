@@ -26,7 +26,7 @@
             <li>
               <ul>
                 <li class="title">Our Community</li>
-                <li><a href="#">Community</a></li>
+                <li><a href="https://discord.gg/yjwmP9s">Community (Discord)</a></li>
                 <li>Blog (coming soon)</li>
                 <li>Forums (coming soon)</li>
               </ul>
@@ -60,13 +60,13 @@
         <div class="copyright">
           <ul>
             <li>
-              <RouterLink to="/about">About Cornerstone</RouterLink>
+              <a href="https://dannyrb.com/q-solutions-llc">About Q Solutions</a>
             </li>
             <li>
               <RouterLink to="/legal/privacy-policy">Privacy Policy</RouterLink>
             </li>
             <li>
-              <a href="#">Sitemap</a>
+              <RouterLink to="/sitemap">Sitemap</RouterLink>
             </li>
           </ul>
           
