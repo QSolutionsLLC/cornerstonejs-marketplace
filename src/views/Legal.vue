@@ -39,13 +39,7 @@
           <div class="box box-header">
             <h4 style="margin: 0;">Cornerstone.js Market Terms</h4>
           </div>
-          <div class="box box-content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et pretium urna. Donec eu tempor lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non orci in lacus consequat placerat at at velit. Phasellus massa erat, faucibus sed mattis eget, vehicula ut magna. Nullam nunc arcu, porttitor eu pharetra sed, iaculis elementum orci. Suspendisse potenti. Proin vel aliquam mi. Vestibulum molestie hendrerit tincidunt. Morbi cursus nulla libero, vel porta velit accumsan vel. Morbi viverra, lorem eget faucibus iaculis, sapien nunc suscipit erat, sit amet egestas urna nibh sed mi. Sed sollicitudin in libero non congue. Integer vitae suscipit sapien.
-
-            Duis ornare, mauris at condimentum aliquet, lorem nunc consectetur nulla, vitae fermentum felis lacus a purus. Suspendisse malesuada, tortor sed convallis rutrum, lacus lacus ultricies tortor, nec rhoncus urna ligula id enim. Proin ut ultricies nibh. Nunc aliquam enim bibendum bibendum laoreet. Duis non elit lobortis, condimentum mauris a, sollicitudin tellus. In rhoncus laoreet maximus. Praesent in est rutrum, aliquet est sed, blandit turpis. Ut et egestas velit. Etiam et purus vel velit hendrerit pharetra sed ut ligula.
-
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra sagittis magna non vulputate. Donec convallis orci at imperdiet lacinia. Pellentesque quis tincidunt diam. Donec et tempus quam, et consectetur lectus. Sed vitae magna nisl. Proin suscipit et lacus non tempor. Maecenas laoreet, tellus quis vehicula fermentum, est massa commodo massa, ac mollis sem eros id magna. Quisque sit amet semper metus, sed vehicula nisl. Vivamus facilisis, nibh eu ultricies efficitur, dui neque rutrum quam, eu venenatis est dolor id ipsum. Vivamus pretium luctus ex, elementum eleifend tellus congue porta. Duis sit amet lacus non nisl tincidunt iaculis.
-          </div>
+          <MarkdownRenderer class="box box-content" :markdown="markdown" />
         </div>
 
       </div>
@@ -55,9 +49,20 @@
 </template>
 
 <script>
-  export default {
-      
-  }
+// Markdown
+import MarketTerms from '@/components/legal/MarketTerms.md'
+import MarkdownRenderer from '@/components/MarkdownRenderer.vue'
+
+export default {
+  components: {
+    MarkdownRenderer
+  },
+  computed: {
+    markdown() {
+      return MarketTerms;
+    }
+  },
+}
 </script>
 
 <style scoped>
