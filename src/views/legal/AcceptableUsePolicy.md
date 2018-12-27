@@ -1,8 +1,3 @@
-- So what’s not acceptable use?
-- How can I report any abuse or offensive content?
-- What action might we take
-- How can you contact us?
-
 ## Welcome to Q Solution LLC’s Acceptable Use Policy
 
 1. Hi, we’re Q Solutions LLC and welcome to our acceptable use policy. This policy sets out what you can and cannot use our sites and products for.
