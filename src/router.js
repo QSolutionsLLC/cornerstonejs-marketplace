@@ -43,6 +43,7 @@ export default new Router({
       path: '/legal/:content?',
       name: 'legal',
       component: () => import(/* webpackChunkName: "legal" */ './views/Legal.vue'),
+      props: true,
     },
     // ADMIN
     {

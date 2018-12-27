@@ -50,16 +50,28 @@
 
 <script>
 // Markdown
-import MarketTerms from '@/components/legal/MarketTerms.md'
+import MarketTerms from '@/views/legal/MarketTerms.md'
+import AuthorTerms from '@/views/legal/AuthorTerms.md'
 import MarkdownRenderer from '@/components/MarkdownRenderer.vue'
 
 export default {
+  props: {
+    content: {
+      type: String,
+      default: 'market'
+    },
+  },
   components: {
     MarkdownRenderer
   },
   computed: {
     markdown() {
-      return MarketTerms;
+      switch(this.content){
+        case "author":
+          return AuthorTerms;
+        default:
+          return MarketTerms;
+      }
     }
   },
 }
