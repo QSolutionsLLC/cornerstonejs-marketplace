@@ -9,7 +9,7 @@
           <RouterLink to="/legal/market">Legal</RouterLink>
         </nav>
 
-        <h1>Cornerstone.js Market Terms</h1>
+        <h1>{{ title }}</h1>
 
       </div>
     </section>
@@ -37,7 +37,7 @@
 
         <div class="main-content">
           <div class="box box-header">
-            <h4 style="margin: 0;">Cornerstone.js Market Terms</h4>
+            <h4 style="margin: 0;">{{ title }}</h4>
           </div>
           <MarkdownRenderer class="box box-content" :markdown="markdown" />
         </div>
@@ -52,6 +52,8 @@
 // Markdown
 import MarketTerms from '@/views/legal/MarketTerms.md'
 import AuthorTerms from '@/views/legal/AuthorTerms.md'
+
+import PrivacyPolicy from '@/views/legal/PrivacyPolicy.md'
 import MarkdownRenderer from '@/components/MarkdownRenderer.vue'
 
 export default {
@@ -69,8 +71,20 @@ export default {
       switch(this.content){
         case "author":
           return AuthorTerms;
+        case "privacy-policy":
+          return PrivacyPolicy;
         default:
           return MarketTerms;
+      }
+    },
+    title() {
+      switch(this.content){
+        case "author":
+          return "Author Terms";
+        case "privacy-policy":
+          return "Privacy Policy";
+        default:
+          return "Cornerstone.js Market Terms";
       }
     }
   },
