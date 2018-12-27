@@ -12,24 +12,23 @@
               <ul>
                 <li class="title">CornerstoneJS Market</li>
                 <li><RouterLink to="/legal/market">Terms</RouterLink></li>
-                <li><a href="#">Licenses</a></li>
+                <li><RouterLink to="/licenses">Licenses</RouterLink></li>
               </ul>
             </li>
             <li>
               <ul>
                 <li class="title">Help</li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Websites</a></li>
-                <li><a href="#">Authors</a></li>
-                <li><a href="#">Help Center</a></li>
+                <li><RouterLink to="/help">Products</RouterLink></li>
+                <li><RouterLink to="/help-author">Authors</RouterLink></li>
+                <li><RouterLink to="/help">Help Center</RouterLink></li>
               </ul>
             </li>
             <li>
               <ul>
                 <li class="title">Our Community</li>
                 <li><a href="#">Community</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Forums</a></li>
+                <li>Blog (coming soon)</li>
+                <li>Forums (coming soon)</li>
               </ul>
             </li>
           </ul>

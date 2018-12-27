@@ -38,12 +38,28 @@ export default new Router({
       name: 'find-experts',
       component: () => import(/* webpackChunkName: "find-experts" */ './views/FindExperts.vue'),
     },
+    // HELP
+    {
+      path: '/help',
+      name: 'help',
+      component: () => import(/* webpackChunkName: "legal" */ './views/Help.vue'),
+    },
+    {
+      path: '/help-author',
+      name: 'help-author',
+      component: () => import(/* webpackChunkName: "legal" */ './views/HelpAuthor.vue'),
+    },
     // LEGAL
     {
       path: '/legal/:content?',
       name: 'legal',
       component: () => import(/* webpackChunkName: "legal" */ './views/Legal.vue'),
       props: true,
+    },
+    {
+      path: '/licenses',
+      name: 'licenses',
+      component: () => import(/* webpackChunkName: "legal" */ './views/Licenses.vue'),
     },
     // ADMIN
     {
