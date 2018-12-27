@@ -220,7 +220,7 @@ h4 {
   background: #ededed;
 }
 
-.sidebar-tabs a.router-link-exact-active {
+.sidebar-tabs a.router-link-active {
   color: #72BF40;
   font-weight: bold;
   border-left: 3px solid #72BF40;

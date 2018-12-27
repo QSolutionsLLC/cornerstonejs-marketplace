@@ -1,3 +1,5 @@
+- [How can I report any abuse or offensive content?](#/legal/acceptable-use-policy/#how-can-i-report-any-abuse-or-offensive-content-)
+
 ## Welcome to Q Solution LLC’s Acceptable Use Policy
 
 1. Hi, we’re Q Solutions LLC and welcome to our acceptable use policy. This policy sets out what you can and cannot use our sites and products for.

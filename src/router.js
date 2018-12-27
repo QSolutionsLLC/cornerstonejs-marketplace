@@ -5,6 +5,23 @@ import Home from './views/Home.vue'
 Vue.use(Router)
 
 export default new Router({
+  scrollBehavior (to, from, savedPosition) {
+    // Scroll to Anchor
+    if(to.hash){
+      return {
+        selector: to.hash,
+        offset: { x: 0, y: 10 }
+      }
+    }
+    // Scroll to saved
+    else if (savedPosition) {
+      return savedPosition
+    } 
+    // Scroll to Top
+    else {
+      return { x: 0, y: 0 }
+    }
+  },
   routes: [
     {
       path: '/',
