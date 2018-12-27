@@ -52,7 +52,7 @@
 // Markdown
 import MarketTerms from '@/views/legal/MarketTerms.md'
 import AuthorTerms from '@/views/legal/AuthorTerms.md'
-
+import AcceptableUsePolicy from '@/views/legal/AcceptableUsePolicy.md'
 import PrivacyPolicy from '@/views/legal/PrivacyPolicy.md'
 import MarkdownRenderer from '@/components/MarkdownRenderer.vue'
 
@@ -73,6 +73,8 @@ export default {
           return AuthorTerms;
         case "privacy-policy":
           return PrivacyPolicy;
+        case "acceptable-use-policy":
+          return AcceptableUsePolicy;
         default:
           return MarketTerms;
       }
@@ -83,6 +85,8 @@ export default {
           return "Author Terms";
         case "privacy-policy":
           return "Privacy Policy";
+        case "acceptable-use-policy":
+          return "Acceptable Use Policy";
         default:
           return "Cornerstone.js Market Terms";
       }
