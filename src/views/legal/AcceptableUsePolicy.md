@@ -1,4 +1,8 @@
-- [How can I report any abuse or offensive content?](#/legal/acceptable-use-policy/#how-can-i-report-any-abuse-or-offensive-content-)
+- [Welcome!](/#/legal/acceptable-use-policy/#welcome-to-q-solution-llc-s-acceptable-use-policy)
+- [What’s not acceptable use?](/#/legal/acceptable-use-policy/#what-s-not-acceptable-use-)
+- [How can I report any abuse or offensive content?](/#/legal/acceptable-use-policy/#how-can-i-report-any-abuse-or-offensive-content-)
+- [What action might we take](/#/legal/acceptable-use-policy/#what-action-might-we-take-if-we-find-a-buyer-or-customer-has-used-our-sites-products-or-services-in-breach-of-this-policy-)
+- [How can you contact us?](#/legal/acceptable-use-policy/#how-can-you-contact-us-)
 
 ## Welcome to Q Solution LLC’s Acceptable Use Policy
 
@@ -6,7 +10,7 @@
 
 2. When we say **’we’**, **’us’** or **’Q Solutions’** it’s because that’s who we are and we own and run the **Cornerstone.js Market**. If we say ’policy’ we’re talking about this acceptable use policy. If we say ’user terms’ we’re talking about the rules for using any of the Q Solutions products and services. Take the time to read this policy because it forms a part of the user terms for each of the Q Solutions products. By using any of our sites, you agree to this policy. If you do not agree to this policy we won’t take it personally, but please do not use Q Solutions.
 
-## So what’s not acceptable use?
+## What’s not acceptable use?
 
 3. It’s **NOT OKAY** to use Q Solutions or any of our sites, services or products to submit, post, build, host or otherwise make available any content that may contain, provide access to (eg, through links to third party websites) or promote any of the following content:
 
