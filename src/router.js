@@ -40,7 +40,7 @@ export default new Router({
       props: true
     },
     {
-      path: '/plugins/item/:name',
+      path: '/plugins/item/:slug',
       name: 'product',
       component: () => import(/* webpackChunkName: "product" */ './views/Product.vue'),
       props: true

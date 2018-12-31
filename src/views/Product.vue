@@ -58,6 +58,14 @@
   export default {
       
   }
+export default {
+  props: {
+    slug: {
+      type: String,
+      required: true 
+    },
+  },
+}
 </script>
 
 <style scoped>
