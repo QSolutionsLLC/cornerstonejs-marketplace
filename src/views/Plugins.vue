@@ -32,6 +32,9 @@ export default {
       list: []
     }
   },
+  // We can store this in VUEX, or a higher level component?
+  // No need to kill this data every time the route dies
+  // Honestly, we could probably cache it for 12 to 24 hours with Service Worker
   async created(){
     try {
       const plugins = await axios.get('https://f0yz2zh64h.execute-api.us-east-2.amazonaws.com/demo/plugins');
