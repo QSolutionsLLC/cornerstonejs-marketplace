@@ -48,7 +48,7 @@
             <ul class="highlights">
               <li v-for="highlight in highlights">{{ highlight }}</li>
             </ul>
-            <section class="tags">
+            <section class="tags" v-if="tags.length > 0">
               Tags:<span v-for="(tag, i) in tags">{{`${i > 0 ? ', ': ' '}${tag}`}}</span>
             </section>
           </div>
