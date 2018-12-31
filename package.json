@@ -10,6 +10,7 @@
     "contributors:generate": "all-contributors generate"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "marked": "^0.5.2",
     "vue": "2.5.x",
     "vue-router": "3.0.x"
