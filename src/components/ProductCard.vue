@@ -17,7 +17,7 @@
           <div class="content-description">
             <h3 class="product-title">
               <a href="#" @click.prevent="$emit('card-clicked', id)">
-                {{name}}
+                {{displayName}}
               </a>
             </h3>
             <div class="by-line">
@@ -80,7 +80,7 @@ export default {
       type: Number,
       required: true
     },
-    name: {
+    displayName: {
       type: String,
       required: true
     },
