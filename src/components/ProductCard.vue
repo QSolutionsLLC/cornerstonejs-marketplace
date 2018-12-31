@@ -35,7 +35,11 @@
               <a href="#" @click.prevent="showMore = !showMore">{{ showMore ? 'Show less' : 'Show more' }}</a>  
             </div>
             <div class="buttons">
-              <SimpleButton name="Preview" />
+              <SimpleButton>
+                <icon-base icon-name="github">
+                  <icon-github />
+                </icon-base>
+              </SimpleButton>
               <SimpleButton name="Buy" type="primary" />
             </div>
           </div>
@@ -62,10 +66,14 @@
 
 <script>
 import SimpleButton from './SimpleButton.vue'
+import IconBase from './IconBase.vue'
+import IconGithub from './icons/IconGithub.vue'
 
 export default {
   components: {
-    SimpleButton
+    SimpleButton,
+    IconBase,
+    IconGithub
   },
   props: {
     id: {
