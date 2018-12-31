@@ -29,7 +29,7 @@ ul {
   display: grid;
   flex-wrap: wrap;
   justify-content: center;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr))
+  grid-template-columns: repeat(auto-fill, minmax(320px, 469px))
 }
 
 li {
