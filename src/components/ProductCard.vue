@@ -16,23 +16,43 @@
           <!-- Description -->
           <div class="content-description">
             <h3 class="product-title">
-              <a href="#">
-                Hello
+              <a href="#" @click.prevent="$emit('card-clicked', id)">
+                {{name}}
               </a>
             </h3>
             <div class="by-line">
-              <i>by </i> <a href="#">@dannyrb</a> in <a href="#">Category</a>
+              <i>by </i>
+              <a :href="authorGithubUrl">
+                {{`@${authorGithubUsername}`}}
+              </a> in <a href="#">{{ category }}</a>
             </div>
           </div>
 
           <!-- Actions -->
           <div class="content-actions">
-            <div class="cost">$20</div>
+            <div class="cost">
+              <span>{{cost > 0 ? `$${cost}` : 'Free'}}</span>
+              <a href="#" @click.prevent="showMore = !showMore">{{ showMore ? 'Show less' : 'Show more' }}</a>  
+            </div>
             <div class="buttons">
               <SimpleButton name="Preview" />
               <SimpleButton name="Buy" type="primary" />
             </div>
           </div>
+
+          <!-- More Details -->
+          <div class="content-more" v-show="showMore">
+            <div class="last-updated">
+              Last updated: {{lastUpdated}}
+            </div>
+            <ul class="highlights">
+              <li v-for="highlight in highlights">{{ highlight }}</li>
+            </ul>
+            <section class="tags">
+              Tags:<span v-for="(tag, i) in tags">{{`${i > 0 ? ', ': ' '}${tag}`}}</span>
+            </section>
+          </div>
+
         </div>
       </section>
 
@@ -59,6 +79,39 @@ export default {
     repositoryFullName: {
       type: String,
       required: true
+    },
+    authorGithubUsername: {
+      type: String,
+      required: true
+    },
+    authorGithubUrl: {
+      type: String,
+      required: true
+    },
+    category: {
+      type: String,
+      required: true
+    },
+    lastUpdated: {
+      type: String,
+      required: true
+    },
+    highlights: {
+      type: Array,
+      required: true
+    },
+    tags: {
+      type: Array,
+      required: true
+    },
+    cost: {
+      type: Number,
+      required: true
+    }
+  },
+  data() {
+    return {
+      showMore: false
     }
   },
   computed: {
@@ -117,6 +170,10 @@ export default {
     flex-grow: 1;
   }
 
+  .content {
+    padding: 16px;
+  }
+
   .content-description {
     height: 48px;
   }
@@ -126,12 +183,66 @@ export default {
     flex-grow: 1;
   }
 
+  .content-more {
+    border-top: 1px solid #f2f2f2;
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+
+  .content-more ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: #666;
+  }
+
+  .content-more li {
+    margin-bottom: 4px;
+    list-style-type: none;
+    line-height: 1.5;
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .content-more li::before {
+    content: "\2022 ";
+    position: absolute;
+    color: #999;
+    left: 0;
+  }
+
+  .content-more .last-updated {
+    line-height: 20px;
+    color: #999;
+    font-size: 12px;
+    padding-bottom: 10px;
+  }
+
+  .content-more .tags {
+    margin-top: 8px;
+    color: #999;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+  }
+
   .cost {
     flex-grow: 1;
     line-height: 28px;
     color: #4d4d4d;
     font-size: 18px;
     font-weight: 700;
+  }
+
+  .cost a {
+    display: block;
+    padding-top: 2px;
+    font-size: 12px;
+    text-decoration: none;
+    color: #b3b3b3;
   }
 
   .buttons {
