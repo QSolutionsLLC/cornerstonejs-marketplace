@@ -13,13 +13,7 @@
         </div>
 
         <!-- Item Description -->
-        <section class="item-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum sed urna eget rutrum. Suspendisse sed lacus elit. Ut varius risus nunc, sit amet ultrices purus aliquet ac. Pellentesque facilisis elementum eros, vitae pulvinar neque tincidunt a. Duis tempor rhoncus fringilla. Fusce eget egestas tortor, in sagittis orci. Curabitur volutpat dui hendrerit hendrerit posuere. Quisque bibendum nunc at auctor molestie. Vestibulum blandit lacus ut rutrum laoreet. Pellentesque convallis vel mauris eu rutrum. Vivamus pellentesque massa in viverra tempor. Nunc ullamcorper imperdiet odio ut ultricies. Maecenas eget justo arcu. Sed vehicula magna ultricies commodo semper. Donec et libero semper, iaculis tellus ut, sollicitudin ex.
-
-          Morbi ac consequat ante. In ac nulla eget neque posuere vulputate nec nec lacus. Ut feugiat ipsum in tortor sodales condimentum. Nam in felis enim. Duis vulputate libero at volutpat blandit. Proin tortor odio, mattis ac maximus ut, ultricies sed elit. Nam finibus metus in ipsum convallis, sed venenatis odio vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis non nulla ac nisi pulvinar malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam diam urna, feugiat efficitur gravida consectetur, tristique id tellus. Quisque nec ex ultrices, fringilla tellus in, gravida purus. Sed laoreet at arcu quis mattis. Vestibulum mattis convallis tortor, non tincidunt odio mollis sed.
-
-          Phasellus sodales sem vel interdum suscipit. Integer a pretium ligula, sed feugiat leo. Integer aliquet enim quis augue hendrerit mollis. Donec id lorem ante. Vestibulum sapien turpis, porta quis faucibus aliquam, fringilla dignissim libero. Pellentesque nec elementum felis. Nullam ornare condimentum viverra. Proin at augue nec ex sollicitudin imperdiet vel in velit. Pellentesque fermentum ipsum et sollicitudin pretium. Quisque ligula sapien, interdum ut lectus sed, posuere ultricies neque. Sed sit amet tempus ante. Morbi in libero ut metus pulvinar aliquet imperdiet sit amet ante.
-        </section>
+        <section class="item-description" v-html="content" v-if="content"></section>
 
       </div>
 
@@ -55,15 +49,43 @@
 </template>
 
 <script>
-  export default {
-      
-  }
+import axios from 'axios';
+
 export default {
   props: {
     slug: {
       type: String,
       required: true 
     },
+  },
+  data() {
+    return {
+      repositoryFullName: undefined,
+      content: undefined
+    }
+  },
+  async created() {
+    try {
+      const detailResult = await axios.get(`https://f0yz2zh64h.execute-api.us-east-2.amazonaws.com/demo/plugins/${this.slug}`);
+      if(detailResult.data){
+        console.log(detailResult.data);
+        this.repositoryFullName = detailResult.data.fullName;
+        this.fetchProductContent();
+      }
+    }catch(err){
+      console.warn(err);
+    }
+  },
+  methods: {
+    async fetchProductContent() {
+      const awsBucket = 'csmarket-listing-assets';
+      const contentUrl = `https://s3.us-east-2.amazonaws.com/${awsBucket}/${this.repositoryFullName}/index.html`;
+
+      const contentResult = await axios.get(contentUrl);
+      if(contentResult.data){
+        this.content = contentResult.data;
+      }
+    }
   },
 }
 </script>
