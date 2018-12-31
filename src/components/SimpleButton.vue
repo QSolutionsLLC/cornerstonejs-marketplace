@@ -1,6 +1,8 @@
 <template>
   <a href="#" :class="type">
-    {{ name }}
+    <slot>
+      {{ name }}
+    </slot>
   </a>
 </template>
 
@@ -9,7 +11,7 @@ export default {
   props: {
     name: {
       type: String,
-      required: true 
+      default: 'No button name'
     },
     type: {
       type: String,
