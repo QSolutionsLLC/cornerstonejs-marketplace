@@ -49,7 +49,7 @@ export default {
   methods: {
     handleCardClicked(selectedId) {
       const clickedItem = this.list.find(item => item.id === selectedId);
-      this.$router.push({ name: 'product', params: { name: clickedItem.name } })
+      this.$router.push({ name: 'product', params: { name: clickedItem.slug } })
     }
   },
 }
