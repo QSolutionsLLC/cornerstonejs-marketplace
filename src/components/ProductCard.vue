@@ -43,7 +43,7 @@
           <!-- More Details -->
           <div class="content-more" v-show="showMore">
             <div class="last-updated">
-              Last updated: {{lastUpdated}}
+              Last updated: {{lastUpdatedDateString}}
             </div>
             <ul class="highlights">
               <li v-for="highlight in highlights">{{ highlight }}</li>
@@ -115,9 +115,57 @@ export default {
     }
   },
   computed: {
+    lastUpdatedDateString() {
+      const date = new Date(this.lastUpdated);
+
+      if(date){
+        const month = this.getShortMonth(date.getUTCMonth());
+        const day = date.getUTCDate();
+        const year = date.getUTCFullYear();
+        const daySuffix = this.getSuffix(day);
+
+        return `${month} ${day}${daySuffix}, ${year}`;
+      }
+
+      return "";
+    },
     listingImageUrl() {
       const awsBucket = 'csmarket-listing-assets';
       return `https://s3.us-east-2.amazonaws.com/${awsBucket}/${this.repositoryFullName}/listing.png`;
+    }
+  },
+  methods: {
+    getShortMonth(month){
+      const months = [
+        "Jan.", "Feb.", "Mar.", "Apr.", "May.",
+        "June", "July", "Aug.", "Sept.", "Oct.",
+        "Nov.", "Dec."
+        ];
+
+        return months[month];
+    },
+    getSuffix(day) {
+      let suffix = "th";
+
+      if (day < 11 || day > 20)
+      {
+        const stringDay = day.toString();
+        const endNumber = stringDay[stringDay.length - 1];
+        switch (parseInt(endNumber))
+        {
+          case 1:
+            suffix = "st";
+            break;
+          case 2:
+            suffix = "nd";
+            break;
+          case 3:
+            suffix = "rd";
+            break;
+        }
+      }
+  
+      return suffix;
     }
   },
 }
