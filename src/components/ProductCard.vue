@@ -102,11 +102,13 @@ export default {
     },
     tags: {
       type: Array,
-      required: true
+      default: () => []
+      // required: true
     },
     cost: {
       type: Number,
-      required: true
+      // required: true
+      default: 0
     }
   },
   data() {
