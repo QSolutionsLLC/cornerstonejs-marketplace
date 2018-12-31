@@ -1,8 +1,8 @@
 <template>
   <section>
     <ul>
-      <li v-for="item in [1, 2, 3, 5, 6, 7, 8, 9, 10]" :key="item">
-        <ProductCard />
+      <li v-for="item in items" :key="item.id">
+        <ProductCard @card-clicked="$emit('card-clicked', $event)" v-bind="item" />
       </li>
     </ul>
   </section>
@@ -11,6 +11,12 @@
 <script>
 import ProductCard from './ProductCard.vue'
   export default {
+    props: {
+      items: {
+        type: Array,
+        default: () => []
+      },
+    },
     components: {
       ProductCard
     }

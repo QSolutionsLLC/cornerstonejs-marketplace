@@ -5,7 +5,7 @@
 
     <h1 v-if="category">{{ category }}</h1>
 
-    <ProductGrid />
+    <ProductGrid :items="list" @card-clicked="handleCardClicked" />
 
     <!-- Paging -->
   </main>
@@ -13,7 +13,8 @@
 
 <script>
 // @ is an alias to /src
-import ProductGrid from '@/components/ProductGrid.vue'
+import axios from 'axios';
+import ProductGrid from '@/components/ProductGrid.vue';
 
 export default {
   name: 'plugins',
@@ -25,6 +26,28 @@ export default {
       type: String,
       default: undefined
     },
+  },
+  data() {
+    return {
+      list: []
+    }
+  },
+  async created(){
+    try {
+      const plugins = await axios.get('https://f0yz2zh64h.execute-api.us-east-2.amazonaws.com/demo/plugins');
+      if(plugins.data){
+        this.list = plugins.data;
+        console.log(this.list)
+      }
+    }catch(err){
+      console.warn(err);
+    }
+  },
+  methods: {
+    handleCardClicked(selectedId) {
+      const clickedItem = this.list.find(item => item.id === selectedId);
+      this.$router.push({ name: 'product', params: { name: clickedItem.name } })
+    }
   },
 }
 </script>

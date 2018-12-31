@@ -4,20 +4,20 @@
 
       <!-- Image -->
       <section class="card-image-wrapper">
-        <a href="">
-          <img src="https://placehold.it/590x300" />
+        <a href="#" @click.prevent="$emit('card-clicked', id)">
+          <img :src="listingImageUrl" alt="example" />
         </a>
       </section>
 
       <!-- Content -->
-      <section class="card-content-wrapper">
+      <section class="card-content-wrappers">
         <div class="content">
           
           <!-- Description -->
           <div class="content-description">
             <h3 class="product-title">
               <a href="#">
-                Basic Overlay Plugin
+                Hello
               </a>
             </h3>
             <div class="by-line">
@@ -46,7 +46,27 @@ import SimpleButton from './SimpleButton.vue'
 export default {
   components: {
     SimpleButton
-  }
+  },
+  props: {
+    id: {
+      type: Number,
+      required: true
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    repositoryFullName: {
+      type: String,
+      required: true
+    }
+  },
+  computed: {
+    listingImageUrl() {
+      const awsBucket = 'csmarket-listing-assets';
+      return `https://s3.us-east-2.amazonaws.com/${awsBucket}/${this.repositoryFullName}/listing.png`;
+    }
+  },
 }
 </script>
 
