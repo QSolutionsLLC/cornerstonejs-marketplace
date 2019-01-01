@@ -5,6 +5,7 @@ import Home from './views/Home.vue'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   scrollBehavior (to, from, savedPosition) {
     // Scroll to Anchor
     if(to.hash){
