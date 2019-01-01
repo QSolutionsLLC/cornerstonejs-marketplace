@@ -35,14 +35,14 @@ export default new Router({
     },
     {
       path: '/plugins/:category?',
-      name: 'plugins',
-      component: () => import(/* webpackChunkName: "plugins" */ './views/Plugins.vue'),
+      name: 'plugin-list',
+      component: () => import(/* webpackChunkName: "plugins-list" */ './views/PluginList.vue'),
       props: true
     },
     {
       path: '/plugins/item/:slug',
-      name: 'product',
-      component: () => import(/* webpackChunkName: "product" */ './views/Product.vue'),
+      name: 'plugin-detail',
+      component: () => import(/* webpackChunkName: "product" */ './views/PluginDetail.vue'),
       props: true
     },
     {

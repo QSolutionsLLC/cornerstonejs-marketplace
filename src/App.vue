@@ -4,23 +4,31 @@
     <NavigationHeader />
     <NavigationSubheader />
 
-    <RouterView />
+    <RouterView style="min-height: 500px;" />
 
     <NavigationFooter />
   </div>
 </template>
 
 <script>
-import NavigationHeader from './components/NavigationHeader.vue'
-import NavigationSubheader from './components/NavigationSubheader.vue'
-import NavigationFooter from './components/NavigationFooter.vue'
+import { mapActions } from 'vuex';
+
+import NavigationHeader from './components/NavigationHeader.vue';
+import NavigationSubheader from './components/NavigationSubheader.vue';
+import NavigationFooter from './components/NavigationFooter.vue';
 
 export default {
   components: {
     NavigationHeader,
     NavigationSubheader,
     NavigationFooter
-  }
+  },
+  created() {
+    this.getList();
+  },
+  methods: {
+    ...mapActions(['getList'])
+  },
 }
 </script>
 

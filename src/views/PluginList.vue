@@ -1,5 +1,5 @@
 <template>
-  <main class="view-plugins">
+  <main>
     <!-- Basic search filter -->
     <!-- #items, grid or list -->
 
@@ -12,12 +12,11 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import axios from 'axios';
+import { mapState } from 'vuex'; 
 import ProductGrid from '@/components/ProductGrid.vue';
 
 export default {
-  name: 'plugins',
+  name: 'plugin-list',
   components: {
     ProductGrid
   },
@@ -27,29 +26,15 @@ export default {
       default: undefined
     },
   },
-  data() {
-    return {
-      list: []
-    }
-  },
-  // We can store this in VUEX, or a higher level component?
-  // No need to kill this data every time the route dies
-  // Honestly, we could probably cache it for 12 to 24 hours with Service Worker
-  async created(){
-    try {
-      const plugins = await axios.get('https://f0yz2zh64h.execute-api.us-east-2.amazonaws.com/demo/plugins');
-      if(plugins.data){
-        this.list = plugins.data;
-        console.log(this.list)
-      }
-    }catch(err){
-      console.warn(err);
-    }
+  computed: {
+    ...mapState({
+      list: state => state.pluginVm.list
+    })
   },
   methods: {
     handleCardClicked(selectedId) {
       const clickedItem = this.list.find(item => item.id === selectedId);
-      this.$router.push({ name: 'product', params: { name: clickedItem.slug } })
+      this.$router.push({ name: 'plugin-detail', params: { slug: clickedItem.slug } })
     }
   },
 }

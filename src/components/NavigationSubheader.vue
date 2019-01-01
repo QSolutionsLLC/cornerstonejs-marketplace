@@ -1,6 +1,6 @@
 <template>
-  <section class="subnavigation-container show-desktop">
-    <div class="subnavigation-wrapper" v-if="isVisible">
+  <section class="subnavigation-container show-desktop" v-if="isVisible">
+    <div class="subnavigation-wrapper">
       <ul>
         <li><RouterLink to="/plugins">All Items</RouterLink></li>
         <li><RouterLink to="/plugins/annotation-tools">Annotation</RouterLink></li>
@@ -15,13 +15,13 @@
 </template>
 
 <script>
-    export default {
-        computed: {
-          isVisible() {
-            return this.$route.name === 'plugins'
-          }
-        },
+export default {
+  computed: {
+    isVisible() {
+      return this.$route.name === 'plugin-list'
     }
+  },
+}
 </script>
 
 <style scoped>
