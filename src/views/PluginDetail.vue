@@ -13,7 +13,11 @@
         </div>
 
         <!-- Item Description -->
-        <section class="item-description" v-html="content" v-if="content"></section>
+        <section
+          class="item-description user-html"
+          v-html="content"
+          v-if="content"
+        ></section>
 
       </div>
 
@@ -90,6 +94,122 @@ export default {
 }
 </script>
 
+<style>
+/***
+ * USER HTML
+ */
+.user-html {
+  line-height: 1.5;
+}
+
+.user-html h1 {
+  border-bottom: 1px solid #d4d4d4;
+  font-size: 26px;
+  line-height: 33px;
+}
+
+.user-html h2 {
+  border-bottom: 1px solid #d4d4d4;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.user-html h3 {
+  border-bottom: 1px solid #d4d4d4;
+  font-size: 22px;
+  line-height: 27px;
+}
+
+.user-html h4 {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.user-html h5 {
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.user-html h6 {
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.user-html h1,
+.user-html h2,
+.user-html h3,
+.user-html h4,
+.user-html h5,
+.user-html h6 {
+  color: #545454;
+  font-weight: 400;
+  margin: 30px 0 20px;
+  padding: 0 0 10px 0;
+}
+
+.user-html table {
+  margin-bottom: 20px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+.user-html ul,
+.user-html ol {
+  padding-left: 35px;
+  margin-bottom: 20px;
+}
+
+.user-html ul {
+  list-style: disc;
+}
+
+.user-html p {
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.user-html blockquote {
+  border-left: 1px solid #454545;
+  color: #777;
+  font-style: italic;
+  margin: 0 0 20px 0;
+  padding-left: 20px;
+}
+
+.user-html strong,
+.user-html b {
+  font-weight: bold;
+}
+
+.user-html pre {
+  margin-bottom: 20px;
+  background-color: whitesmoke;
+  background-image: linear-gradient(#f5f5f5 50%, #e6e6e6 50%);
+  background-size: 38px 38px;
+  border: 1px solid #d4d4d4;
+  display: block;
+  line-height: 19px;
+  overflow: visible;
+  overflow-y: hidden;
+  padding: 0 0 0 4px;
+
+  color: #333333;
+  font: 11px Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.user-html a {
+  color: #0084B4;
+  text-decoration: none;
+}
+
+.user-html a:hover {
+  color: #00719b;
+  text-decoration: underline;
+}
+</style>
+
 <style scoped>
 main {
   position: relative;
@@ -150,6 +270,10 @@ h1 {
   margin-bottom: 20px;
 }
 
+
+/***  
+ * BOX
+ */
 .box {
   background-color: #fafafa;
   color: #666666;
