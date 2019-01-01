@@ -13,7 +13,8 @@
     "axios": "^0.18.0",
     "marked": "^0.5.2",
     "vue": "2.5.x",
-    "vue-router": "3.0.x"
+    "vue-router": "3.0.x",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "3.2.x",
