@@ -10,7 +10,7 @@
           <ul class="parent-list">
             <li>
               <ul>
-                <li class="title">CornerstoneJS Market</li>
+                <li class="title">Market</li>
                 <li><RouterLink to="/legal/market">Terms</RouterLink></li>
                 <li><RouterLink to="/licenses">Licenses</RouterLink></li>
               </ul>
