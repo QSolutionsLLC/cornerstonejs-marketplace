@@ -65,6 +65,8 @@
 </template>
 
 <script>
+import pluginImages from '@/utils/pluginImages.js';
+//
 import SimpleButton from './SimpleButton.vue'
 import IconBase from './IconBase.vue'
 import IconGithub from './icons/IconGithub.vue'
@@ -139,9 +141,8 @@ export default {
 
       return "";
     },
-    listingImageUrl() {
-      const awsBucket = 'csmarket-listing-assets';
-      return `https://s3.us-east-2.amazonaws.com/${awsBucket}/${this.repositoryFullName}/listing.png`;
+    listingImageUrl() { 
+      return pluginImages.getListing(this.repositoryFullName);
     }
   },
   methods: {

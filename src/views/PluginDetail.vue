@@ -1,61 +1,73 @@
 <template>
-  <main>
-    <h1>Item Name - Hello World</h1>
+  <div>
+    <ContextHeader
+      :title="displayName"
+      :breadcrumbs="breadcrumbs" 
+    />
 
-    <div class="grid-container">
-      <div class="content-s">
+    <main>
+      <div class="grid-container">
+        <div class="content">
 
-        <!-- Image -->
-        <div class="image-preview-box">
-          <a href="#">
-            <img src="https://placehold.it/590x300" />
-          </a>
+          <!-- Image -->
+          <div class="image-preview-box">
+            <a href="#">
+              <img :src="listingImageUrl" />
+            </a>
+          </div>
+
+          <!-- Item Description -->
+          <section
+            class="item-description user-html"
+            v-html="content"
+            v-if="content"
+          ></section>
+
         </div>
 
-        <!-- Item Description -->
-        <section
-          class="item-description user-html"
-          v-html="content"
-          v-if="content"
-        ></section>
+        <div class="sidebar-right">
+          <div class="box">
+            <form class="purchase-form">
+              
+              <!-- LICENSE -->
+              <div class="license-selection">
+                <span class="license-type">
+                  <select name="liccense">
+                    <option value="regular" selected="selected">Regular License</option>
+                    <option value="extended">Extended License</option>
+                  </select>
+                </span>
 
-      </div>
-
-      <div class="sidebar-right">
-        <div class="box">
-          <form class="purchase-form">
-            
-            <!-- LICENSE -->
-            <div class="license-selection">
-              <span class="license-type">
-                <select name="liccense">
-                  <option value="regular" selected="selected">Regular License</option>
-                  <option value="extended">Extended License</option>
-                </select>
-              </span>
-
-              <div class="license-price">
-                $17
+                <div class="license-price">
+                  $17
+                </div>
               </div>
-            </div>
 
-            <div class="info">
-              <p>Use, by you or one client, in a single end product which end users are not charged for. The total price includes the item price and a buyer fee.</p>
-              <p><a href="#">License details</a> | <a href="#">Why buy with Cornerstone.js Marketplace</a></p>
-            </div>
+              <div class="info">
+                <p>Use, by you or one client, in a single end product which end users are not charged for. The total price includes the item price and a buyer fee.</p>
+                <p><a href="#">License details</a> | <a href="#">Why buy with Cornerstone.js Marketplace</a></p>
+              </div>
 
-            <button type="submit" class="purchase-button">Buy Now</button>
-          </form>
+              <button type="submit" class="purchase-button">Buy Now</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
+
+  </div>
 </template>
 
 <script>
 import axios from 'axios';
+import pluginImages from '@/utils/pluginImages.js';
+
+import ContextHeader from '@/components/ContextHeader.vue';
 
 export default {
+  components: {
+    ContextHeader
+  },
   props: {
     slug: {
       type: String,
@@ -64,6 +76,8 @@ export default {
   },
   data() {
     return {
+      displayName: undefined,
+      category: undefined,
       repositoryFullName: undefined,
       content: undefined
     }
@@ -73,6 +87,8 @@ export default {
       const detailResult = await axios.get(`https://f0yz2zh64h.execute-api.us-east-2.amazonaws.com/demo/plugins/${this.slug}`);
       if(detailResult.data){
         console.log(detailResult.data);
+        this.category = detailResult.data.category;
+        this.displayName = detailResult.data.displayName;
         this.repositoryFullName = detailResult.data.fullName;
         this.fetchProductContent();
       }
@@ -90,6 +106,19 @@ export default {
         this.content = contentResult.data;
       }
     }
+  },
+  computed: {
+    breadcrumbs() {
+      if(!this.category) return []
+      
+      return [{
+        to: `/plugins/${this.category}`,
+        text: this.category
+      }];
+    },
+    listingImageUrl() { 
+      return pluginImages.getListing(this.repositoryFullName);
+    },
   },
 }
 </script>
@@ -375,7 +404,7 @@ h1 {
     min-height: 540px;
   }
 
-  .content-s {
+  .content {
     float: left;
     width: 616px;
   }

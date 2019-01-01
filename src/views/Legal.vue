@@ -1,18 +1,12 @@
 <template>
   <div>
 
-    <section class="context-header">
-      <div class="generic-content-container">
-        
-        <nav class="breadcrumbs">
-          <RouterLink to="/">Home</RouterLink>
-          <RouterLink to="/legal/market">Legal</RouterLink>
-        </nav>
-
-        <h1>{{ title }}</h1>
-
-      </div>
-    </section>
+    <ContextHeader
+      :title="title"
+      :breadcrumbs="[{
+        to: '/legal/market',
+        text: 'Legal'
+      }]" />
 
     <main>
       <div class="generic-content-container">
@@ -50,11 +44,15 @@
 
 <script>
 // Markdown
-import MarketTerms from '@/views/legal/MarketTerms.md'
-import AuthorTerms from '@/views/legal/AuthorTerms.md'
-import AcceptableUsePolicy from '@/views/legal/AcceptableUsePolicy.md'
-import PrivacyPolicy from '@/views/legal/PrivacyPolicy.md'
-import MarkdownRenderer from '@/components/MarkdownRenderer.vue'
+import MarketTerms from '@/views/legal/MarketTerms.md';
+import AuthorTerms from '@/views/legal/AuthorTerms.md';
+import AcceptableUsePolicy from '@/views/legal/AcceptableUsePolicy.md';
+import PrivacyPolicy from '@/views/legal/PrivacyPolicy.md';
+
+// Components
+import MarkdownRenderer from '@/components/MarkdownRenderer.vue';
+import ContextHeader from '@/components/ContextHeader.vue';
+
 
 export default {
   props: {
@@ -64,7 +62,8 @@ export default {
     },
   },
   components: {
-    MarkdownRenderer
+    MarkdownRenderer,
+    ContextHeader
   },
   computed: {
     markdown() {
@@ -96,13 +95,6 @@ export default {
 </script>
 
 <style scoped>
-.context-header {
-  background: #fafafa;
-  border-bottom: 1px solid #e1e8ed;
-  padding-top: 8px;
-  color: #454545;
-}
-
 .generic-content-container {
   max-width: 64rem;
   padding-left: 0.625rem;
@@ -115,58 +107,6 @@ export default {
   content: "";
   display: table;
   clear: both;
-}
-
-.breadcrumbs {
-  margin: 0 0 8px 0;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.breadcrumbs a {
-  position: relative;
-  color: #666666;
-  font-size: 12px;
-  line-height: 1;
-  text-decoration: none;
-}
-
-.breadcrumbs a::after {
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  text-align: center;
-  width: 1em;
-  content: ">";
-  display: inline-block;
-  font-size: 9px;
-  color: #bababa;
-  margin: 0 4px 0 8px;
-  cursor: default;
-}
-
-.breadcrumbs a:last-child:after
-{
-  content: '';
-}
-
-.breadcrumbs a:hover {
-  text-decoration: none;
-  color: #454545;
-}
-
-h1 {
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1em;
-}
-
-@media (max-width: 1023px) {
-  h1 {
-    font-size: 24px;
-  }
 }
 
 main {

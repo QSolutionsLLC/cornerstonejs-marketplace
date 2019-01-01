@@ -18,7 +18,7 @@
 export default {
   computed: {
     isVisible() {
-      return this.$route.name === 'plugin-list'
+      return this.$route.name === 'plugin-list' || this.$route.name === 'plugin-detail'
     }
   },
 }
