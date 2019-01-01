@@ -8,6 +8,9 @@ import NProgress from 'nprogress/nprogress'
 // Routes
 import Home from './views/Home.vue'
 
+//
+import store from '@/store.js';
+
 Vue.use(Router)
 Vue.use(VueMeta, {
   // The component option name that vue-meta looks for meta info on.
@@ -54,7 +57,33 @@ const router = new Router({
       path: '/plugins/item/:slug',
       name: 'plugin-detail',
       component: () => import(/* webpackChunkName: "product" */ './views/PluginDetail.vue'),
-      props: true
+      meta: {
+        beforeResolve(routeTo, routeFrom, next) {
+          store
+            .dispatch('getDetail', routeTo.params.slug)
+            .then((detail) => {
+              routeTo.params.detail = detail;
+
+              store
+                .dispatch('getDetailContent', detail.fullName)
+                .then((detailContent) => {
+                  routeTo.params.content = detailContent;
+                  next()
+                })
+            })
+            .catch(() => {
+              // TODO: Notification
+              next()
+              // next({ name: '404', params: { resource: 'User' } })
+            })
+        }
+      },
+      // params.detail is set in `beforeResolve` guard
+      // see `meta.beforeResolve`
+      props: (route) => ({ 
+        detail: route.params.detail,
+        content: route.params.content
+      }),
     },
     {
       path: '/learning-materials',

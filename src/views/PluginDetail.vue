@@ -1,8 +1,8 @@
 <template>
   <div>
     <ContextHeader
-      :title="displayName"
-      :breadcrumbs="breadcrumbs" 
+      :title="detail.displayName"
+      :breadcrumbs="detail.breadcrumbs" 
     />
 
     <main>
@@ -58,22 +58,25 @@
           <div class="box">
             
             <div class="media">
-              <a :href="ownerHtmlUrl" class="media-item">
-                <img :src="ownerAvatar" v-if="ownerAvatar" />
+              <a :href="detail.ownerHtmlUrl" class="media-item">
+                <img :src="detail.ownerAvatar" v-if="detail.ownerAvatar" />
               </a>
               <div class="media-body">
                 <h2>
-                  <a :href="ownerHtmlUrl">@{{ownerLogin}}</a>
+                  <a :href="detail.ownerHtmlUrl">@{{ detail.ownerLogin }}</a>
                 </h2>
               </div>
             </div>
             
-            <a :href="ownerHtmlUrl" class="btn">
+            <a :href="detail.ownerHtmlUrl" class="btn">
               <icon-base icon-name="github">
                   <icon-github />
                 </icon-base> View Portfolio
             </a>
           </div>
+
+          <!-- DETAILS BOX -->
+        
         </div>
       </div>
     </main>
@@ -96,63 +99,28 @@ export default {
     IconGithub
   },
   props: {
-    slug: {
-      type: String,
+    detail: {
+      type: Object,
       required: true 
     },
-  },
-  data() {
-    return {
-      displayName: undefined,
-      category: undefined,
-      ownerAvatar: undefined,
-      ownerHtmlUrl: undefined,
-      ownerLogin: undefined,
-      repositoryFullName: undefined,
-      content: undefined
-    }
-  },
-  async created() {
-    try {
-      const detailResult = await axios.get(`https://f0yz2zh64h.execute-api.us-east-2.amazonaws.com/demo/plugins/${this.slug}`);
-      if(detailResult.data){
-        console.log(detailResult.data);
-        this.category = detailResult.data.category;
-        this.displayName = detailResult.data.displayName;
-        this.ownerAvatar = detailResult.data.ownerAvatar;
-        this.ownerHtmlUrl = detailResult.data.ownerHtmlUrl;
-        this.ownerLogin = detailResult.data.ownerLogin;
-        this.repositoryFullName = detailResult.data.fullName;
-        this.fetchProductContent();
-      }
-    }catch(err){
-      console.warn(err);
-    }
-  },
-  methods: {
-    async fetchProductContent() {
-      const awsBucket = 'csmarket-listing-assets';
-      const contentUrl = `https://s3.us-east-2.amazonaws.com/${awsBucket}/${this.repositoryFullName}/index.html`;
-
-      const contentResult = await axios.get(contentUrl);
-      if(contentResult.data){
-        this.content = contentResult.data;
-      }
+    content: {
+      type: String,
+      required: true
     }
   },
   computed: {
     breadcrumbs() {
-      if(!this.category) return [];
+      if(!this.detail.category) return [];
       
       return [{
-        to: `/plugins/${this.category}`,
-        text: this.category
+        to: `/plugins/${this.detail.category}`,
+        text: this.detail.category
       }];
     },
     listingImageUrl() { 
-      if(!this.repositoryFullName) return undefined;
+      if(!this.detail.fullName) return undefined;
 
-      return pluginImages.getListing(this.repositoryFullName);
+      return pluginImages.getListing(this.detail.fullName);
     },
   },
 }
