@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // https://github.com/declandewet/vue-meta
 import VueMeta from 'vue-meta'
+// Adds a loading bar at the top during page loads.
+import NProgress from 'nprogress/nprogress'
 
 // Routes
 import Home from './views/Home.vue'
@@ -12,7 +14,7 @@ Vue.use(VueMeta, {
   keyName: 'page',
 })
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   scrollBehavior (to, from, savedPosition) {
     // Scroll to Anchor
@@ -99,7 +101,66 @@ export default new Router({
       component: () => import(/* webpackChunkName: "connect" */ './views/Connect.vue'),
     },
   ]
+});
+
+router.beforeEach((routeTo, routeFrom, next) => {
+  // If this isn't an initial page load...
+  if(routeFrom.name !== null) {
+    NProgress.start();
+  }
+
+  return next();
 })
+
+// custom `beforeResolve` hook
+// fires when `beforeRouteEnter` and `beforeRouteUpdate` would
+// Allows us to ensure data is fetched even when params change.
+// It's in "meta" because it's not a native vue-router hook.
+// See `beforeEnter` navigation guard:
+// https://router.vuejs.org/guide/advanced/navigation-guards.html#per-route-guard
+router.beforeResolve(async (routeTo, routeFrom, next) => {
+  try {
+    // For each matched route...
+    for (const route of routeTo.matched) {
+      await new Promise((resolve, reject) => {
+        // If a `beforeResolve` hook is defined, call it with
+        // the same arguments as the `beforeEnter` hook.
+        if (route.meta && route.meta.beforeResolve) {
+          route.meta.beforeResolve(routeTo, routeFrom, (...args) => {
+            // If the user chose to redirect...
+            if (args.length) {
+              // If redirecting to the same route we're coming from...
+              if (routeFrom.name === args[0].name) {
+                // Complete the animation of the route progress bar.
+                NProgress.done()
+              }
+              // Complete the redirect.
+              next(...args)
+              reject(new Error('Redirected'))
+            } else {
+              resolve()
+            }
+          })
+        } else {
+          // Otherwise, continue resolving the route.
+          resolve()
+        }
+      })
+    }
+  }
+  // If a `beforeResolve` hook chose to redirect, just return.
+  catch(error){
+    return;
+  }
+
+  next();
+})
+
+router.afterEach((routeTo, reouteFrom) => {
+  NProgress.done();
+});
+
+export default router;
 
 // Home
 // Start Selling
