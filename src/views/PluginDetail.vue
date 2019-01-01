@@ -2,7 +2,7 @@
   <div>
     <ContextHeader
       :title="detail.displayName"
-      :breadcrumbs="detail.breadcrumbs" 
+      :breadcrumbs="breadcrumbs" 
     />
 
     <main>
