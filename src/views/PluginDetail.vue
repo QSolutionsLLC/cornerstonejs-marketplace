@@ -12,7 +12,7 @@
           <!-- Image -->
           <div class="image-preview-box">
             <a href="#">
-              <img :src="listingImageUrl" />
+              <img :src="listingImageUrl" v-if="listingImageUrl" />
             </a>
           </div>
 
@@ -26,6 +26,8 @@
         </div>
 
         <div class="sidebar-right">
+
+          <!-- LICENSE BOX -->
           <div class="box">
             <form class="purchase-form">
               
@@ -51,6 +53,27 @@
               <button type="submit" class="purchase-button">Buy Now</button>
             </form>
           </div>
+
+          <!-- AUTHOR BOX -->
+          <div class="box">
+            
+            <div class="media">
+              <a :href="ownerHtmlUrl" class="media-item">
+                <img :src="ownerAvatar" v-if="ownerAvatar" />
+              </a>
+              <div class="media-body">
+                <h2>
+                  <a :href="ownerHtmlUrl">@{{ownerLogin}}</a>
+                </h2>
+              </div>
+            </div>
+            
+            <a :href="ownerHtmlUrl" class="btn">
+              <icon-base icon-name="github">
+                  <icon-github />
+                </icon-base> View Portfolio
+            </a>
+          </div>
         </div>
       </div>
     </main>
@@ -63,10 +86,14 @@ import axios from 'axios';
 import pluginImages from '@/utils/pluginImages.js';
 
 import ContextHeader from '@/components/ContextHeader.vue';
+import IconBase from '@/components/IconBase.vue'
+import IconGithub from '@/components/icons/IconGithub.vue'
 
 export default {
   components: {
-    ContextHeader
+    ContextHeader,
+    IconBase,
+    IconGithub
   },
   props: {
     slug: {
@@ -78,6 +105,9 @@ export default {
     return {
       displayName: undefined,
       category: undefined,
+      ownerAvatar: undefined,
+      ownerHtmlUrl: undefined,
+      ownerLogin: undefined,
       repositoryFullName: undefined,
       content: undefined
     }
@@ -89,6 +119,9 @@ export default {
         console.log(detailResult.data);
         this.category = detailResult.data.category;
         this.displayName = detailResult.data.displayName;
+        this.ownerAvatar = detailResult.data.ownerAvatar;
+        this.ownerHtmlUrl = detailResult.data.ownerHtmlUrl;
+        this.ownerLogin = detailResult.data.ownerLogin;
         this.repositoryFullName = detailResult.data.fullName;
         this.fetchProductContent();
       }
@@ -109,7 +142,7 @@ export default {
   },
   computed: {
     breadcrumbs() {
-      if(!this.category) return []
+      if(!this.category) return [];
       
       return [{
         to: `/plugins/${this.category}`,
@@ -117,6 +150,8 @@ export default {
       }];
     },
     listingImageUrl() { 
+      if(!this.repositoryFullName) return undefined;
+
       return pluginImages.getListing(this.repositoryFullName);
     },
   },
@@ -312,6 +347,10 @@ h1 {
   border: 1px solid #e1e8ed;
 }
 
+
+/***  
+ * BOX - LICENSE
+ */
 .license-selection {
   display: table;
   width: 100%;
@@ -397,6 +436,72 @@ h1 {
   background-color: #0084B4;
   text-decoration: none;
   outline: none;
+}
+
+/***  
+ * BOX - AUTHOR
+ */
+
+.media {
+  display: flex;
+  flex-flow: nowrap;
+}
+
+.media .media-item {
+  position: relative;
+  margin-right: 1em;
+  flex: 0 auto;
+  height: 80px;
+  width: 80px;
+}
+
+.media .media-item img {
+  width: 100%;
+}
+
+.media .media-body {
+  flex: 1 0;
+  align-self: flex-start;
+}
+
+.media-body h2 {
+  color: #454545;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  padding: 0;
+}
+
+.media-body a {
+  color: #454545;
+  text-decoration: none;
+}
+
+.media-body a:hover {
+  text-decoration: underline;
+}
+
+.box a.btn {
+  display: block;
+  box-shadow: 0 2px 0 #a8a8a8;
+  position: relative;
+  border: none;
+  width: 100%;
+  background-color: #e6e6e6;
+  color: #666666;
+  font-size: 14px;
+  padding: 5px 20px;
+  line-height: 1.5;
+  margin: 8px 0 0 0;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.box a.btn:hover {
+  background-color: #e0e0e0;
 }
 
 @media (min-width: 1024px) {
