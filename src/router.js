@@ -1,8 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// https://github.com/declandewet/vue-meta
+import VueMeta from 'vue-meta'
+
+// Routes
 import Home from './views/Home.vue'
 
 Vue.use(Router)
+Vue.use(VueMeta, {
+  // The component option name that vue-meta looks for meta info on.
+  keyName: 'page',
+})
 
 export default new Router({
   mode: 'history',
