@@ -34,23 +34,37 @@
               <!-- LICENSE -->
               <div class="license-selection">
                 <span class="license-type">
-                  <select name="liccense">
+                  MIT
+                  <!-- <select name="license">
                     <option value="regular" selected="selected">Regular License</option>
                     <option value="extended">Extended License</option>
-                  </select>
+                  </select> -->
                 </span>
 
                 <div class="license-price">
-                  $17
+                  $0
                 </div>
               </div>
 
               <div class="info">
-                <p>Use, by you or one client, in a single end product which end users are not charged for. The total price includes the item price and a buyer fee.</p>
-                <p><a href="#">License details</a> | <a href="#">Why buy with Cornerstone.js Marketplace</a></p>
+                <!-- <p>Use, by you or one client, in a single end product which end users are not charged for. The total price includes the item price and a buyer fee.</p> -->
+                <p>The author has chosen to offer this software free of charge and under the permissive MIT license.
+                  Please consider buying them a coffee if you find this software useful as a small token of thanks!</p>
+                <p><a href="#">License details</a> | <a href="#">Why buy with us</a></p>
               </div>
 
-              <button type="submit" class="purchase-button">Buy Now</button>
+              <!-- <button type="submit" class="purchase-button">Buy Now</button>-->
+              <a :href="detail.htmlUrl" class="btn">
+                <icon-base icon-name="github">
+                  <icon-github />
+                </icon-base> View On GitHub
+              </a>
+              <BuyCoffeeButton
+                style="margin-top: 12px;"
+                :author="`@${detail.ownerLogin}`"
+                :donationUrl="detail.buyMeACoffee"
+                v-if="detail.buyMeACoffee"
+              />
             </form>
           </div>
 
@@ -88,12 +102,14 @@
 import axios from 'axios';
 import pluginImages from '@/utils/pluginImages.js';
 
+import BuyCoffeeButton from '@/components/BuyCoffeeButton.vue';
 import ContextHeader from '@/components/ContextHeader.vue';
-import IconBase from '@/components/IconBase.vue'
-import IconGithub from '@/components/icons/IconGithub.vue'
+import IconBase from '@/components/IconBase.vue';
+import IconGithub from '@/components/icons/IconGithub.vue';
 
 export default {
   components: {
+    BuyCoffeeButton,
     ContextHeader,
     IconBase,
     IconGithub
